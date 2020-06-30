@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-// const tourRouter = require('./routes/tourRoutes');
-// const userRouter = require('./routes/userRoutes');
+const userRouter = require("./routes/userRoutes");
 app.use(express.json());
 app.use(express.static("./public"));
 //middleware
@@ -14,12 +13,6 @@ app.get("/", (req, res) => {
     .json({ message: "hello from server side", app: "Story teller" });
 });
 
-// app.post('/', (req, res) => {
-//   res.send('post method is running');
-// });
-//route handler
+app.use("/api/v1/user", userRouter);
 
-//route
-
-//start server
 module.exports = app;
