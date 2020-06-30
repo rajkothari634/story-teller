@@ -11,10 +11,14 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validator: [validator.isEmail, "please provide a valid email"],
   },
+  key: {
+    type: String,
+  },
   story: [
     {
       imagepath: String,
       imagecontent: String,
+      date: Date,
     },
   ],
 });
